@@ -36,17 +36,17 @@ export function Navbar() {
         scrolled ? "bg-background/90 backdrop-blur-md border-b border-border" : "bg-transparent"
       }`}
     >
-      <nav className="site-container flex items-center justify-between py-4">
+      <nav className="site-container flex items-center justify-between py-3 sm:py-4">
         <Link href="#home" aria-label="Star City home">
           <Logo />
         </Link>
 
-        <ul className="hidden items-center gap-8 lg:flex">
+        <ul className="hidden items-center gap-6 lg:gap-8 lg:flex">
           {links.map((l) => (
             <li key={l.href}>
               <a
                 href={l.href}
-                className="text-sm font-medium text-foreground/80 transition-all hover:text-primary hover:[text-shadow:0_0_12px_oklch(0.87_0.18_99_/_0.6)]"
+                className="text-xs sm:text-sm font-medium text-foreground/80 transition-all hover:text-primary hover:[text-shadow:0_0_12px_oklch(0.87_0.18_99_/_0.6)]"
               >
                 {l.label}
               </a>
@@ -58,7 +58,7 @@ export function Navbar() {
           href={WHATSAPP_LINK}
           target="_blank"
           rel="noopener noreferrer"
-          className="game-city-btn hidden rounded-full px-6 py-2.5 text-sm font-bold uppercase tracking-wide text-white lg:inline-block"
+          className="game-city-btn hidden rounded-full px-4 sm:px-6 py-2 sm:py-2.5 text-xs sm:text-sm font-bold uppercase tracking-wide text-white lg:inline-block"
         >
           Game City
         </a>
@@ -68,7 +68,7 @@ export function Navbar() {
           className="text-foreground lg:hidden"
           aria-label="Toggle menu"
         >
-          {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          {open ? <X className="h-5 w-5 sm:h-6 sm:w-6" /> : <Menu className="h-5 w-5 sm:h-6 sm:w-6" />}
         </button>
       </nav>
 
@@ -80,25 +80,25 @@ export function Navbar() {
             exit={{ height: 0, opacity: 0 }}
             className="overflow-hidden border-t border-border bg-background lg:hidden"
           >
-            <ul className="site-container flex flex-col gap-1 py-4">
+            <ul className="site-container flex flex-col gap-1 py-3 sm:py-4">
               {links.map((l) => (
                 <li key={l.href}>
                   <a
                     href={l.href}
                     onClick={() => setOpen(false)}
-                    className="block rounded-lg px-2 py-3 text-base font-medium text-foreground/80 transition-colors hover:bg-secondary hover:text-primary"
+                    className="block rounded-lg px-2 py-2 sm:py-3 text-sm sm:text-base font-medium text-foreground/80 transition-colors hover:bg-secondary hover:text-primary"
                   >
                     {l.label}
                   </a>
                 </li>
               ))}
-              <li className="pt-2">
+              <li className="pt-2 sm:pt-3">
                 <a
                   href={WHATSAPP_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setOpen(false)}
-                  className="game-city-btn block rounded-full px-6 py-3 text-center text-sm font-bold uppercase tracking-wide text-white"
+                  className="game-city-btn block rounded-full px-6 py-2.5 sm:py-3 text-center text-xs sm:text-sm font-bold uppercase tracking-wide text-white"
                 >
                   Game City
                 </a>

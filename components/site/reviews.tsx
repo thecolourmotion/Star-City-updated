@@ -31,10 +31,10 @@ function Stars({ rating, size = "h-4 w-4" }: { rating: number; size?: string }) 
 
 function ReviewCard({ name, text, rating }: { name: string; text: string; rating: number }) {
   return (
-    <div className="w-80 shrink-0 rounded-2xl border border-border bg-card p-6">
-      <Stars rating={rating} />
-      <p className="mt-4 text-sm leading-relaxed text-foreground/90">{text}</p>
-      <p className="mt-4 text-sm font-semibold" style={{ color: "#d7cc32" }}>{name}</p>
+    <div className="w-72 md:w-80 shrink-0 rounded-2xl border border-border bg-card p-5 md:p-6">
+      <Stars rating={rating} size="h-4 w-4" />
+      <p className="mt-3 md:mt-4 text-xs md:text-sm leading-relaxed text-foreground/90">{text}</p>
+      <p className="mt-3 md:mt-4 text-xs md:text-sm font-semibold" style={{ color: "#d7cc32" }}>{name}</p>
     </div>
   )
 }
@@ -52,19 +52,19 @@ export function Reviews() {
   }
 
   return (
-    <section id="reviews" className="overflow-hidden py-16 md:py-24">
+    <section id="reviews" className="overflow-hidden py-12 md:py-16 lg:py-24">
       <div className="site-container">
-        <Reveal className="flex flex-col items-center gap-4 text-center">
+        <Reveal className="flex flex-col items-center gap-3 sm:gap-4 text-center">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-widest" style={{ color: "#d7cc32" }}>Reviews</p>
-            <h2 className="heading-font mt-2 text-3xl text-foreground sm:text-5xl">
+            <p className="text-xs font-semibold uppercase tracking-widest sm:text-sm" style={{ color: "#d7cc32" }}>Reviews</p>
+            <h2 className="heading-font mt-2 text-2xl text-foreground sm:text-3xl md:text-4xl lg:text-5xl">
               Loved By Our Visitors
             </h2>
           </div>
-          <div className="flex items-center gap-3 rounded-full border border-border bg-card px-6 py-3">
-            <span className="heading-font text-3xl text-primary">4.9</span>
+          <div className="flex flex-col items-center gap-3 rounded-full border border-border bg-card px-4 py-3 sm:flex-row sm:px-6">
+            <span className="heading-font text-2xl sm:text-3xl text-primary">4.9</span>
             <div className="text-left">
-              <Stars rating={5} size="h-3.5 w-3.5" />
+              <Stars rating={5} size="h-3 w-3 sm:h-3.5 sm:w-3.5" />
               <p className="text-xs text-muted-foreground">Based on 500+ happy visitors</p>
             </div>
           </div>
@@ -72,9 +72,9 @@ export function Reviews() {
       </div>
 
       {/* Desktop: Continuous scroll */}
-      <div className="relative mt-12 hidden md:block">
+      <div className="relative mt-8 hidden md:mt-12 md:block">
         <motion.div
-          className="flex gap-5"
+          className="flex gap-4 md:gap-5"
           animate={{ x: ["0%", "-50%"] }}
           transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
         >
@@ -85,7 +85,7 @@ export function Reviews() {
       </div>
 
       {/* Mobile: Centered review with bottom navigation */}
-      <div className="relative mt-12 flex md:hidden flex-col items-center justify-center gap-6 px-4">
+      <div className="relative mt-8 flex md:hidden flex-col items-center justify-center gap-4 sm:gap-6 px-2 sm:px-4">
         <div className="w-full max-w-xs overflow-hidden">
           <motion.div
             initial={false}
@@ -94,43 +94,43 @@ export function Reviews() {
             className="flex"
           >
             {reviews.map((r, i) => (
-              <div key={i} className="w-full shrink-0">
-                <div className="rounded-2xl border border-border bg-card p-6">
+              <div key={i} className="w-full shrink-0 px-2">
+                <div className="rounded-2xl border border-border bg-card p-4 sm:p-6">
                   <Stars rating={r.rating} />
-                  <p className="mt-4 text-sm leading-relaxed text-foreground/90">{r.text}</p>
-                  <p className="mt-4 text-sm font-semibold" style={{ color: "#d7cc32" }}>{r.name}</p>
+                  <p className="mt-3 sm:mt-4 text-xs sm:text-sm leading-relaxed text-foreground/90">{r.text}</p>
+                  <p className="mt-3 sm:mt-4 text-xs sm:text-sm font-semibold" style={{ color: "#d7cc32" }}>{r.name}</p>
                 </div>
               </div>
             ))}
           </motion.div>
         </div>
-        <div className="flex items-center justify-center gap-4">
+        <div className="flex items-center justify-center gap-3 sm:gap-4">
           <button
             onClick={handlePrev}
             disabled={mobileIndex === 0}
-            className={`rounded-full border p-2 transition-all ${
+            className={`rounded-full border p-1.5 sm:p-2 transition-all ${
               mobileIndex === 0
                 ? "border-border/50 bg-card/50 opacity-50 cursor-not-allowed"
                 : "border-border bg-card hover:bg-primary/10"
             }`}
             aria-label="Previous Review"
           >
-            <ChevronLeft className="h-5 w-5" />
+            <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5" />
           </button>
-          <span className="text-sm text-muted-foreground">
+          <span className="text-xs sm:text-sm text-muted-foreground">
             {mobileIndex + 1} / {reviews.length}
           </span>
           <button
             onClick={handleNext}
             disabled={mobileIndex === reviews.length - 1}
-            className={`rounded-full border p-2 transition-all ${
+            className={`rounded-full border p-1.5 sm:p-2 transition-all ${
               mobileIndex === reviews.length - 1
                 ? "border-border/50 bg-card/50 opacity-50 cursor-not-allowed"
                 : "border-border bg-card hover:bg-primary/10"
             }`}
             aria-label="Next Review"
           >
-            <ChevronRight className="h-5 w-5" />
+            <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5" />
           </button>
         </div>
       </div>

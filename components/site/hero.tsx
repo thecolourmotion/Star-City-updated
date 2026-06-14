@@ -23,7 +23,7 @@ export function Hero() {
   }, [])
 
   return (
-    <section id="home" className="relative overflow-hidden pt-28 pb-40 md:pt-32 md:pb-44">
+    <section id="home" className="relative overflow-hidden pt-20 pb-12 md:pt-24 md:pb-16 lg:pt-28 lg:pb-20">
       <div className="site-container relative">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -31,24 +31,24 @@ export function Hero() {
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="text-center"
         >
-          <h1 className="heading-font text-5xl leading-[0.95] text-foreground sm:text-7xl md:text-8xl" style={{ fontWeight: 600 }}>
+          <h1 className="heading-font text-4xl leading-[0.95] text-foreground sm:text-6xl md:text-7xl lg:text-8xl" style={{ fontWeight: 600 }}>
             WELCOME
             <br />
             TO <span style={{ color: "#d7cc32" }}>STAR CITY</span>
           </h1>
-          <p className="heading-font mt-4 text-lg tracking-widest sm:text-xl" style={{ color: "#d7cc32" }}>
+          <p className="heading-font mt-3 text-base tracking-widest sm:mt-4 sm:text-lg md:text-xl" style={{ color: "#d7cc32" }}>
             The place to be
           </p>
-          <p className="mx-auto mt-5 max-w-2xl text-pretty text-sm leading-relaxed text-muted-foreground sm:text-base">
+          <p className="mx-auto mt-4 max-w-2xl text-pretty text-xs leading-relaxed text-muted-foreground sm:text-sm md:mt-5 md:text-base">
             Experience exciting games, delicious food, a relaxing lounge, and unforgettable moments
             for the whole family.
           </p>
 
-          <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:mt-8 sm:flex-row sm:gap-4">
             <a
               href="#games"
               style={{ backgroundColor: "#d7cc32", color: "#000000" }}
-              className="w-full rounded-full px-8 py-3.5 text-sm font-semibold transition-all hover:scale-105 sm:w-auto"
+              className="w-full rounded-full px-6 py-2.5 text-xs font-semibold transition-all hover:scale-105 sm:w-auto sm:px-8 sm:py-3.5 sm:text-sm"
             >
               Explore Activities
             </a>
@@ -57,7 +57,7 @@ export function Hero() {
               target="_blank"
               rel="noopener noreferrer"
               style={{ borderColor: "#d7cc32", color: "#d7cc32", backgroundColor: "#000000" }}
-              className="w-full rounded-full border px-8 py-3.5 text-sm font-semibold transition-all hover:bg-[#d7cc32] hover:text-black sm:w-auto"
+              className="w-full rounded-full border px-6 py-2.5 text-xs font-semibold transition-all hover:bg-[#d7cc32] hover:text-black sm:w-auto sm:px-8 sm:py-3.5 sm:text-sm"
             >
               Book a Visit
             </a>
@@ -70,11 +70,7 @@ export function Hero() {
           initial={{ opacity: 0, scale: 0.96 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-          className="relative mt-12 aspect-[16/9] overflow-hidden rounded-3xl border border-border md:rounded-3xl md:max-w-5xl md:mx-auto md:w-full"
-          style={{
-            width: "100vw",
-            marginLeft: "calc(-50vw + 50%)",
-          }}
+          className="relative mt-12 aspect-[16/9] overflow-hidden rounded-3xl border border-border md:rounded-3xl"
         >
           <AnimatePresence mode="wait">
             <motion.div
@@ -90,7 +86,7 @@ export function Hero() {
                 alt={slides[index].alt}
                 fill
                 priority
-                sizes="(max-width: 1024px) 100vw, 1024px"
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 80vw"
                 className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent" />
