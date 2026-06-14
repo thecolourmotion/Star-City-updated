@@ -65,18 +65,13 @@ export function Hero() {
         </motion.div>
 
         {/* image slider */}
-        <div className="mt-12 lg:flex lg:justify-center lg:px-0">
-          <motion.div
-            style={{ y }}
-            initial={{ opacity: 0, scale: 0.96 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            className="relative aspect-[16/9] overflow-hidden rounded-3xl border border-border md:rounded-3xl w-full lg:max-w-[80vw]"
-            style={{
-              width: "100vw",
-              marginLeft: "calc(-50vw + 50%)",
-            }}
-          >
+        <motion.div
+          style={{ y }}
+          initial={{ opacity: 0, scale: 0.96 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+          className="relative mt-12 aspect-[16/9] overflow-hidden rounded-3xl border border-border md:rounded-3xl w-full lg:w-[80%] lg:ml-[10%] lg:mr-[10%]"
+        >
           <AnimatePresence mode="wait">
             <motion.div
               key={index}
@@ -111,7 +106,6 @@ export function Hero() {
             ))}
           </div>
         </motion.div>
-        </div>
       </div>
     </section>
   )
