@@ -24,10 +24,10 @@ export function ServiceSection({
   reverse = false,
 }: ServiceProps) {
   return (
-    <section id={id} className="py-12 md:py-16 lg:py-24">
+    <section id={id} className="py-16 md:py-24">
       <div className="site-container">
         <div
-          className={`grid items-center gap-6 md:gap-8 lg:gap-16 md:grid-cols-2 ${
+          className={`grid items-center gap-10 md:grid-cols-2 md:gap-16 ${
             reverse ? "md:[&>*:first-child]:order-2" : ""
           }`}
         >
@@ -54,14 +54,14 @@ export function ServiceSection({
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           >
-            <h2 className="heading-font text-2xl sm:text-3xl md:text-4xl lg:text-5xl" style={{ color: "#d7cc32" }}>{title}</h2>
-            <p className="mt-3 sm:mt-4 text-pretty text-sm leading-relaxed text-muted-foreground md:text-base">
+            <h2 className="heading-font text-3xl sm:text-4xl md:text-5xl" style={{ color: "#d7cc32" }}>{title}</h2>
+            <p className="mt-5 text-pretty text-base leading-relaxed text-muted-foreground">
               {description}
             </p>
             {features && (
-              <ul className="mt-4 sm:mt-6 grid gap-2 sm:gap-3 sm:grid-cols-2">
+              <ul className="mt-6 grid gap-3 sm:grid-cols-2">
                 {features.map((f) => (
-                  <li key={f} className="flex items-center gap-2.5 text-xs text-foreground/90 sm:text-sm">
+                  <li key={f} className="flex items-center gap-2.5 text-sm text-foreground/90">
                     <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full" style={{ backgroundColor: "#d7cc32" }}>
                       <Check className="h-3 w-3 text-black" />
                     </span>

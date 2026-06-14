@@ -170,28 +170,8 @@
 }
 
 @utility site-container {
-  width: 100%;
-  max-width: 1400px;
-  padding-inline: 1rem;
+  width: 80%;
   margin-inline: auto;
-}
-
-@screen sm {
-  @utility site-container {
-    padding-inline: 1.5rem;
-  }
-}
-
-@screen md {
-  @utility site-container {
-    padding-inline: 2rem;
-  }
-}
-
-@screen lg {
-  @utility site-container {
-    padding-inline: 3rem;
-  }
 }
 
 @utility text-glow {

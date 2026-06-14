@@ -15,16 +15,16 @@ const photos = [
 
 export function Gallery() {
   return (
-    <section className="py-12 md:py-20 lg:py-24">
+    <section className="py-16 md:py-24">
       <div className="site-container">
         <Reveal className="text-center">
-          <p className="text-xs font-semibold uppercase tracking-widest sm:text-sm" style={{ color: "#d7cc32" }}>Gallery</p>
-          <h2 className="heading-font mt-2 text-2xl text-foreground sm:text-3xl md:text-4xl lg:text-5xl">
+          <p className="text-sm font-semibold uppercase tracking-widest" style={{ color: "#d7cc32" }}>Gallery</p>
+          <h2 className="heading-font mt-2 text-3xl text-foreground sm:text-5xl">
             The Star City Experience
           </h2>
         </Reveal>
 
-        <div className="mt-8 grid gap-3 sm:mt-10 sm:gap-4 md:mt-12 grid-cols-1 sm:grid-cols-2 lg:columns-3 lg:[&>*]:mb-4">
+        <div className="mt-12 columns-2 gap-4 md:columns-3 [&>*]:mb-4">
           {photos.map((p, i) => (
             <motion.div
               key={p.src + i}
@@ -34,15 +34,13 @@ export function Gallery() {
               transition={{ duration: 0.5, delay: (i % 3) * 0.1 }}
               className="group relative block w-full overflow-hidden rounded-2xl border border-border"
             >
-              <div className={`relative w-full ${p.tall ? "aspect-[3/4]" : "aspect-[4/3]"}`}>
-                <Image
-                  src={p.src || "/placeholder.svg"}
-                  alt={p.alt}
-                  fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-              </div>
+              <Image
+                src={p.src || "/placeholder.svg"}
+                alt={p.alt}
+                width={600}
+                height={p.tall ? 800 : 450}
+                className="h-auto w-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
               <div className="absolute inset-0 bg-primary/0 transition-colors duration-300 group-hover:bg-primary/10" />
             </motion.div>
           ))}
