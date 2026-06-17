@@ -40,7 +40,7 @@ export function Footer() {
           <h3 className="heading-font text-lg" style={{ color: "#d7cc32" }}>Contact</h3>
           <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
             <li className="flex items-center gap-2.5">
-              <Phone className="h-4 w-4" style={{ color: "#d7cc32" }} /> +(237)6531226550
+              <Phone className="h-4 w-4" style={{ color: "#d7cc32" }} /> +(237)653122655
             </li>
             <li className="flex items-center gap-2.5">
               <Mail className="h-4 w-4" style={{ color: "#d7cc32" }} /> hello@starcity.com
