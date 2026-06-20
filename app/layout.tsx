@@ -1,6 +1,7 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import { Sora } from 'next/font/google'
+import { LanguageProvider } from '@/lib/i18n/context'
 import './globals.css'
 
 const sora = Sora({
@@ -49,7 +50,9 @@ export default function RootLayout({
       className={`${sora.variable} bg-background`}
     >
       <body className="font-sans antialiased">
-        {children}
+        <LanguageProvider>
+          {children}
+        </LanguageProvider>
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>

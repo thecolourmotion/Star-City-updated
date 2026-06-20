@@ -6,19 +6,21 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X } from "lucide-react"
 import { Logo } from "./logo"
 import { WHATSAPP_LINK } from "./contact"
-
-const links = [
-  { label: "Home", href: "#home" },
-  { label: "Games", href: "#games" },
-  { label: "Lounge", href: "#lounge" },
-  { label: "Fast Food", href: "#fast-food" },
-  { label: "Swimming Pool", href: "#pool" },
-  { label: "Reviews", href: "#reviews" },
-]
+import { LanguageSelector } from "./language-selector"
+import { useLanguage } from "@/lib/i18n/context"
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+  const { t } = useLanguage()
+
+  const links = [
+    { labelKey: "nav.home", href: "#home" },
+    { labelKey: "nav.games", href: "#games" },
+    { labelKey: "nav.lounge", href: "#lounge" },
+    { labelKey: "nav.pool", href: "#pool" },
+    { labelKey: "nav.reviews", href: "#reviews" },
+  ]
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24)
@@ -48,20 +50,23 @@ export function Navbar() {
                 href={l.href}
                 className="text-sm font-medium text-foreground/80 transition-all hover:text-primary hover:[text-shadow:0_0_12px_oklch(0.87_0.18_99_/_0.6)]"
               >
-                {l.label}
+                {t(l.labelKey)}
               </a>
             </li>
           ))}
         </ul>
 
-        <a
-          href={WHATSAPP_LINK}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="game-city-btn hidden rounded-full px-6 py-2.5 text-sm font-bold uppercase tracking-wide text-white lg:inline-block"
-        >
-          Game City
-        </a>
+        <div className="hidden items-center gap-4 lg:flex">
+          <LanguageSelector />
+          <a
+            href={WHATSAPP_LINK}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="game-city-btn rounded-full px-6 py-2.5 text-sm font-bold uppercase tracking-wide text-white"
+          >
+            {t("nav.gameCity")}
+          </a>
+        </div>
 
         <button
           onClick={() => setOpen((v) => !v)}
@@ -88,10 +93,13 @@ export function Navbar() {
                     onClick={() => setOpen(false)}
                     className="block rounded-lg px-2 py-3 text-base font-medium text-foreground/80 transition-colors hover:bg-secondary hover:text-primary"
                   >
-                    {l.label}
+                    {t(l.labelKey)}
                   </a>
                 </li>
               ))}
+              <li className="pt-2 flex items-center justify-between">
+                <LanguageSelector />
+              </li>
               <li className="pt-2">
                 <a
                   href={WHATSAPP_LINK}
@@ -100,7 +108,7 @@ export function Navbar() {
                   onClick={() => setOpen(false)}
                   className="game-city-btn block rounded-full px-6 py-3 text-center text-sm font-bold uppercase tracking-wide text-white"
                 >
-                  Game City
+                  {t("nav.gameCity")}
                 </a>
               </li>
             </ul>

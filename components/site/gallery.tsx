@@ -3,6 +3,7 @@
 import Image from "next/image"
 import { motion } from "framer-motion"
 import { Reveal } from "./reveal"
+import { useLanguage } from "@/lib/i18n/context"
 
 const photos = [
   { src: "/lounge.png", alt: "Lounge", tall: true },
@@ -14,13 +15,15 @@ const photos = [
 ]
 
 export function Gallery() {
+  const { t } = useLanguage()
+
   return (
     <section className="py-16 md:py-24">
       <div className="site-container">
         <Reveal className="text-center">
-          <p className="text-sm font-semibold uppercase tracking-widest" style={{ color: "#d7cc32" }}>Gallery</p>
+          <p className="text-sm font-semibold uppercase tracking-widest" style={{ color: "#d7cc32" }}>{t("gallery.title")}</p>
           <h2 className="heading-font mt-2 text-3xl text-foreground sm:text-5xl">
-            The Star City Experience
+            {t("gallery.subtitle")}
           </h2>
         </Reveal>
 
