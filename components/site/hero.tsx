@@ -4,7 +4,6 @@ import { useEffect, useState } from "react"
 import Image from "next/image"
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion"
 import { WHATSAPP_LINK } from "./contact"
-import { useLanguage } from "@/lib/i18n/context"
 
 const slides = [
   { src: "/arcade.png", alt: "Arcade racing games at Star City" },
@@ -17,7 +16,6 @@ export function Hero() {
   const [index, setIndex] = useState(0)
   const { scrollY } = useScroll()
   const y = useTransform(scrollY, [0, 600], [0, 120])
-  const { t } = useLanguage()
 
   useEffect(() => {
     const t = setInterval(() => setIndex((i) => (i + 1) % slides.length), 2250)
@@ -34,15 +32,16 @@ export function Hero() {
           className="text-center"
         >
           <h1 className="heading-font text-5xl leading-[0.95] text-foreground sm:text-7xl md:text-8xl" style={{ fontWeight: 600 }}>
-            {t("hero.welcome")}
+            WELCOME
             <br />
-            {t("hero.toStarCity")} <span style={{ color: "#d7cc32" }}>{t("hero.starCity")}</span>
+            TO <span style={{ color: "#d7cc32" }}>STAR CITY</span>
           </h1>
           <p className="heading-font mt-4 text-lg tracking-widest sm:text-xl" style={{ color: "#d7cc32" }}>
-            {t("hero.tagline")}
+            The place to be
           </p>
           <p className="mx-auto mt-5 max-w-2xl text-pretty text-sm leading-relaxed text-muted-foreground sm:text-base">
-            {t("hero.description")}
+            Experience exciting games, delicious food, a relaxing lounge, and unforgettable moments
+            for the whole family.
           </p>
 
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
@@ -51,7 +50,7 @@ export function Hero() {
               style={{ backgroundColor: "#d7cc32", color: "#000000" }}
               className="w-full rounded-full px-8 py-3.5 text-sm font-semibold transition-all hover:scale-105 sm:w-auto"
             >
-              {t("hero.exploreActivities")}
+              Explore Activities
             </a>
             <a
               href={WHATSAPP_LINK}
@@ -60,7 +59,7 @@ export function Hero() {
               style={{ borderColor: "#d7cc32", color: "#d7cc32", backgroundColor: "#000000" }}
               className="w-full rounded-full border px-8 py-3.5 text-sm font-semibold transition-all hover:bg-[#d7cc32] hover:text-black sm:w-auto"
             >
-              {t("hero.bookVisit")}
+              Book a Visit
             </a>
           </div>
         </motion.div>
